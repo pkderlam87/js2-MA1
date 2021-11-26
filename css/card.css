@@ -5,11 +5,18 @@
     gap: 1%;
 }
 .squad{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
     z-index: 100;
     max-width: 100%;
+    padding: 2%;
     background-color: var(--background-charts-footer-nav);
     border: none;
     box-shadow: 6px 6px 12px #dee2e6;
+}
+.squad h5{
+    grid-row-start: 1;
+    grid-row-end: span 2;
 }
 .squad:nth-child(5n-2){
     background-color: var(--white);

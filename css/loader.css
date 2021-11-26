@@ -1,6 +1,8 @@
 .loader{
-  border: 10px solid var(--pink); 
-  border-top: 10px solid var(--white); 
+  border-left: 10px solid var(--pink); 
+  border-top: 10px solid var(--white);
+  border-right: 10px solid #c32c738c;
+  border-bottom: 10px solid #c32c733f; 
   border-radius: 50%;
   width: 120px;
   height: 120px;

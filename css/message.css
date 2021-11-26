@@ -3,13 +3,16 @@
     max-width: 40%;
     margin: 3% auto;
     padding: 8px;
+    border: 2px solid var(--pink);
     background-color: var(--background-charts-footer-nav);
-    border: 2px dashed var(--error);
     box-shadow: 6px 6px 12px #dee2e6;
-    border-radius: 15px;
-    
+    border-radius: 15px;  
+}
+.error,
+.noResults,
+.results{
+    text-align: center;
 }
 .error{
     color: var(--error);
-    text-align: center;
 }
