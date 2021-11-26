@@ -1,0 +1,46 @@
+.card__group{
+    max-width: 90%;
+    margin: 3% auto;
+    display: grid;
+    gap: 1%;
+}
+.squad{
+    z-index: 100;
+    max-width: 100%;
+    background-color: var(--background-charts-footer-nav);
+    border: none;
+    box-shadow: 6px 6px 12px #dee2e6;
+}
+.squad:nth-child(5n-2){
+    background-color: var(--white);
+    border: 3px solid var(--pink);
+}
+.squad:nth-child(6){
+    background-color: var(--pink);
+    border: 3px solid var(--white);
+}
+.squad:nth-child(12){
+    background-color: var(--pink);
+    border: 3px solid var(--white);
+}
+.squad:nth-child(18){
+    background-color: var(--pink);
+    border: 3px solid var(--white);
+}
+.rounded-lg{
+    border-radius: 15px;
+}
+.card__group > .card{
+    margin-bottom: 3%;
+}
+@media (min-width: 768px){
+    .card__group{
+        grid-template-columns: 1fr 1fr 1fr 1fr; 
+        gap: 2%;
+        margin: 3% auto 15% auto;
+    }
+    .squad{
+        max-width: 90%;
+        height: 263px;
+   }
+}
