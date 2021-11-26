@@ -1,12 +1,12 @@
 export function displayResults(products) {
     const resultsContainer = document.querySelector(".card__group");
     resultsContainer.innerHTML = "";
-    for (let i = 0; i < products.length; i++) {
+    products.forEach((product) => {
         resultsContainer.innerHTML += `<div class="squad rounded-lg">
-                <h5>Product: ${products[i].title}</h5>
-                <h6>Price: £ ${products[i].price}</h6>
+                <h5>Product: ${product.title}</h5>
+                <h6>Price: £ ${product.price}</h6>
                     <div class = "buttons">
-                        <button class = "cardsButtons add"><i class="fas fa-shopping-basket" data-id=${products[i].id} data-product=${products[i].title} data-price=${products[i].price}></i></button>
+                        <button class = "cardsButtons add"><i class="fas fa-shopping-basket" data-id=${product.id} data-product=${product.title} data-price=${product.price}></i></button>
                         <button class = "cardsButtons del"><i class="fas fa-trash-alt"></i></button>
                     </div>
             </div>`
@@ -14,7 +14,7 @@ export function displayResults(products) {
         wishButtons.forEach((button) => {
             button.addEventListener("click", handleClick);
         });
-    }
+    });
 }
 
 function handleClick(button) {
