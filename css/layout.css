@@ -13,7 +13,6 @@ body{
 }
 footer{
     background-color: var(--background-charts-footer-nav);
-    margin-top: 14rem;
     flex-shrink: 0;
 }
 .text-footer{

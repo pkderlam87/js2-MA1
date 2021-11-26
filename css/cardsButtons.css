@@ -1,0 +1,26 @@
+.buttons{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+.cardsButtons{
+    margin-left: 15%;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    
+}
+.fa-shopping-basket{
+    color:var(--pink);
+    
+}
+.fa-trash-alt{
+    color: var(--title);
+    
+}
+.fa-shopping-basket,
+.fa-trash-alt{
+    font-size: 1.3em;
+}
