@@ -1,16 +1,27 @@
+import { getExistingWish } from "./getExistWish.js";
+
 export function displayResults(products) {
     const resultsContainer = document.querySelector(".card__group");
+    const wishes = getExistingWish();
+
     resultsContainer.innerHTML = "";
     products.forEach((product) => {
+        let cssClass = "far";
+        const doesObjectExist = wishes.find(function (wish) {
+            return parseInt(wish.id) === product.id;
+        });
+        if (doesObjectExist) {
+            cssClass = "fa";
+        }
+
         resultsContainer.innerHTML += `<div class="squad rounded-lg">
                 <h5>Product: ${product.title}</h5>
                 <h6>Price: £ ${product.price}</h6>
                     <div class = "buttons">
-                        <button class = "cardsButtons add"><i class="fas fa-shopping-basket" data-id=${product.id} data-product=${product.title} data-price=${product.price}></i></button>
-                        <button class = "cardsButtons del"><i class="fas fa-trash-alt"></i></button>
+                        <i class="${cssClass} fa-heart" data-id="${product.id}" data-product="${product.title}" data-price="${product.price}"></i>
                     </div>
             </div>`
-        const wishButtons = document.querySelectorAll(".add");
+        const wishButtons = document.querySelectorAll(".buttons i");
         wishButtons.forEach((button) => {
             button.addEventListener("click", handleClick);
         });
@@ -19,29 +30,29 @@ export function displayResults(products) {
 
 function handleClick(button) {
     console.log(button);
+    this.classList.toggle("fa");
+    this.classList.toggle("far");
+
+    const id = this.dataset.id;
+    const title = this.dataset.product;
+    const price = this.dataset.price;
+    console.log(title);
+    const currentWishes = getExistingWish();
+
+    const productExists = currentWishes.find(function (wish) {
+        return wish.id === id;
+    });
+
+    if (productExists === undefined) {
+        const product = { id: id, product: title, price: price };
+        currentWishes.push(product);
+        saveWishes(currentWishes);
+    } else {
+        const newWish = currentWishes.filter((wish) => wish.id !== id);
+        saveWishes(newWish);
+    }
 }
-    /*this.classList.toggle("fa");
-this.classList.toggle("far");
 
-const id = this.dataset.id;
-const name = this.dataset.name;
-
-const currentFavs = getExistingFavs();
-
-const productExists = currentFavs.find(function (fav) {
-return fav.id === id;
-});
-
-if (productExists === undefined) {
-const product = { id: id, name: name };
-currentFavs.push(product);
-saveFavs(currentFavs);
-} else {
-const newFavs = currentFavs.filter((fav) => fav.id !== id);
-saveFavs(newFavs);
+function saveWishes(wishes) {
+    localStorage.setItem("wishes", JSON.stringify(wishes));
 }
-}
-
-function saveFavs(favs) {
-localStorage.setItem("favourites", JSON.stringify(favs));
-}*/

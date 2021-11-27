@@ -22,17 +22,10 @@
     background-color: var(--white);
     border: 3px solid var(--pink);
 }
-.squad:nth-child(6){
+.squad:nth-child(6n+6){
     background-color: var(--pink);
     border: 3px solid var(--white);
-}
-.squad:nth-child(12){
-    background-color: var(--pink);
-    border: 3px solid var(--white);
-}
-.squad:nth-child(18){
-    background-color: var(--pink);
-    border: 3px solid var(--white);
+    color:var(--background-charts-footer-nav);
 }
 .rounded-lg{
     border-radius: 15px;
